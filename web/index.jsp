@@ -8,10 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>WAP Lab12</title>
   </head>
   <body>
-    <h1>We are here to help you.</h1>
-    <a href='support'>CS technical support</a>
+    <h1>Please, insert your login information.</h1>
+    <form action="login" method="post">
+      <p>UserName: <input name="username" value=${cookie.Username.value}></p>
+      <p>Password: <input type="password" name="password"></p>
+      <br>Remember me. <input type="checkbox"
+                              name="remember" value="yes"/>
+      <p><input type="submit" value="Login"></p>
+      <p>${err_msg}</p>
+    </form>
   </body>
 </html>
