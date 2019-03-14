@@ -11,7 +11,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome! ${username}.</h1>
-    <a href="index.jsp" name="logout">LOG OUT</a>
+    <h1>Welcome! ${Username}.</h1>
+    <a href="logout" name="logout">LOG OUT</a>
 </body>
 </html>

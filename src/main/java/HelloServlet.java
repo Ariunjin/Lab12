@@ -24,23 +24,18 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         String currname = req.getParameter("username");
         String currpass = req.getParameter("password");
+        String remember = req.getParameter("remember");
         HttpSession session = req.getSession();
-        session.setAttribute("username",currname);
-        session.setAttribute("password",currpass);
-        if(req.getParameter("remember") == "yes"){ //&& session.isNew()){
+        session.setAttribute("Username",currname);
+        session.setAttribute("Password",currpass);
+        if("yes".equals(remember)){
             Cookie c = new Cookie("Username", currname);
             c.setMaxAge(60*60*24*30);
-           /*
-           Cookie remember = new Cookie("rememberme", "yes");
-           remember.setMaxAge(60*60*24*30);
-           */
             resp.addCookie(c);
-           // resp.addCookie(remember);
         } else {
-            Cookie c = new Cookie("Username", "");
+            Cookie c = new Cookie("Username", null);
             c.setMaxAge(0);
-           // Cookie remember = new Cookie("rememberme", "");
-           // remember.setMaxAge(0);
+            resp.addCookie(c);
         }
 
         User newUser = new User(currname,currpass);
